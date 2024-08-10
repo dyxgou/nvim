@@ -9,6 +9,9 @@ map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 map("n", "<leader>x", "<cmd>wq<CR>", { desc = "Close and save the buffer" })
 
+map("n", "+", "<C-a>", { desc = "Increment a number" })
+map("n", "-", "<C-x>", { desc = "Decrement a number" })
+
 --Normal Keybindings
 map("n", "<leader>e", "$a", { desc = "Go to the end of the line" })
 map("n", "<leader>j", "_", { desc = "Go to the beginning of the line" })
@@ -21,14 +24,12 @@ map("n", "<leader>y", "*y", { desc = "Use pc clipboard" })
 map("n", "<leader>a", "<C-w><Left>", { desc = "Move between windows" })
 map("n", "<leader>d", "<C-w><Right>", { desc = "Move to the window in the right" })
 map("n", "<leader>s", "<C-w><Down>", { desc = "Move to the window in the down" })
-
 -- Move code
 map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move a line of code upwards" })
 map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move a line of code downwards" })
 
 -- Neotree
 map("n", "<C-b>", "<cmd>NvimTreeToggle right<CR>", { desc = "Open up neotree" })
-
 --Telescope
 
 local builtin = require("telescope.builtin")
