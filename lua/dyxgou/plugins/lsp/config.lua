@@ -44,3 +44,9 @@ lsp.emmet_language_server.setup({
 	on_attach = on_attach,
 	capabilities = lsp_capabilities,
 })
+
+lsp.markdown_oxide.setup({
+	cmd = { "markdown-oxide" },
+	filetypes = { "markdown" },
+	root_dir = lsp.util.root_pattern(".git", "."),
+})

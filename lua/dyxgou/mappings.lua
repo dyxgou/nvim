@@ -37,6 +37,10 @@ local builtin = require("telescope.builtin")
 map("n", "<leader>pf", builtin.find_files, { desc = "Find files in Telescope" })
 map("n", "<leader>ps", builtin.live_grep, { desc = "Find words in Telescope" })
 
+--- Obsidian
+
+map("n", "<leader>oo", "<cmd>ObsidianOpen<CR>", { desc = "Open Obsidian" })
+
 -- Mappings
 
 nomap("n", "gcc")

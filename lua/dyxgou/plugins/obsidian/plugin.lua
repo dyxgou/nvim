@@ -3,15 +3,22 @@ return {
 	version = "*", -- recommended, use latest release instead of latest commit
 	ft = "markdown",
 	mappings = {
+		["<leader>bo"] = {
+			"n",
+			"<cmd>ObsidianOpen<CR>",
+			{ desc = "Open Obsidian" },
+		},
+
 		-- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
-		["gf"] = {
+		--
+		["<leader>bp"] = {
 			action = function()
 				return require("obsidian").util.gf_passthrough()
 			end,
 			opts = { noremap = false, expr = true, buffer = true },
 		},
 		-- Toggle check-boxes.
-		["<leader>ch"] = {
+		["<leader>bt"] = {
 			action = function()
 				return require("obsidian").util.toggle_checkbox()
 			end,
@@ -57,8 +64,11 @@ return {
 		workspaces = {
 			{
 				name = "personal",
-				path = "~/projects/notes/",
+				path = "~/projects/notes",
 			},
+		},
+		templates = {
+			folder = "templates",
 		},
 	},
 }
