@@ -18,7 +18,7 @@ map("n", "<leader>j", "_", { desc = "Go to the beginning of the line" })
 map("n", "<C-a>", "ggVG")
 
 -- Copy Stuff around
-map("n", "<leader>y", "*y", { desc = "Use pc clipboard" })
+map("n", "<leader>y", '"+y', { desc = "Use pc clipboard" })
 
 -- Windows
 map("n", "<leader>a", "<C-w><Left>", { desc = "Move between windows" })

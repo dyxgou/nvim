@@ -27,6 +27,9 @@ local languages = {
 	"kotlin_language_server",
 	"gopls",
 	"jdtls",
+	"html",
+	"dockerls",
+	"docker_compose_language_service",
 }
 
 for _, language in ipairs(languages) do
