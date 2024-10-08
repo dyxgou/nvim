@@ -1,7 +1,7 @@
 return {
-  format = {
-    stop_after_first = true
-  },
+	format = {
+		stop_after_first = true,
+	},
 	formatters_by_ft = {
 		lua = { "stylua", "lua_ls" },
 		go = { "goimports", "gofmt", "golines", "gofumpt" },
@@ -9,6 +9,7 @@ return {
 		typescript = { { "prettierd", "prettier" } },
 		typescriptreact = { { "prettierd", "prettier" } },
 		javascriptreact = { { "prettierd", "prettier" } },
+		cpp = { "clang-format" },
 		astro = { { "prettier" } },
 		godot = { "gdformat" },
 		python = function(bufnr)
