@@ -30,6 +30,7 @@ local languages = {
 	"html",
 	"dockerls",
 	"docker_compose_language_service",
+	"clangd",
 }
 
 for _, language in ipairs(languages) do

@@ -2,6 +2,9 @@ require("nvim-tree").setup({
 	renderer = {
 		root_folder_label = false,
 		icons = {
+			show = {
+				folder = true,
+			},
 			glyphs = {
 				default = "󰈚",
 				symlink = "",
