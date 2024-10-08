@@ -41,6 +41,17 @@ map("n", "<leader>ps", builtin.live_grep, { desc = "Find words in Telescope" })
 --- Obsidian
 
 map("n", "<leader>oo", "<cmd>ObsidianOpen<CR>", { desc = "Open Obsidian" })
+map("n", "<leader>op", function()
+	return require("obsidian").util.gf_passthrough()
+end, { desc = "Open obisidian wiki link" })
+
+map("n", "<leader>ot", function()
+	return require("obsidian").util.toggle_checkbox()
+end, { desc = "Toggle obsidian checkbox" })
+
+map("n", "<cr>", function()
+	return require("obsidian").util.smart_action()
+end, { desc = "Toggle obsidian checkbox" })
 
 -- Mappings
 
