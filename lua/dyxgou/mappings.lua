@@ -3,11 +3,12 @@ local nomap = vim.keymap.del
 
 -- Nvim Keybindings
 map({ "n", "i", "v" }, "<C-z>", "<cmd>u<CR>", { desc = "Go back in the file" })
-map({ "n", "i", "v" }, "<C-s>", "<cmd> wa <cr>", { desc = "Save all files" })
+map({ "n", "i", "v" }, "<C-s>", "<cmd>wa<cr>", { desc = "Save all files" })
 map("n", "Q", "<nop>")
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 map("n", "<leader>x", "<cmd>wq<CR>", { desc = "Close and save the buffer" })
+map("n", "J", "m`o<Esc>``", { desc = "Create a line under", silent = true })
 
 map("n", "+", "<C-a>", { desc = "Increment a number" })
 map("n", "-", "<C-x>", { desc = "Decrement a number" })
