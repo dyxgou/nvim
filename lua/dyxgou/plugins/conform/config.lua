@@ -1,16 +1,16 @@
 return {
-	format = {
+	default_format_opts = {
 		stop_after_first = true,
 	},
 	formatters_by_ft = {
 		lua = { "stylua", "lua_ls" },
 		go = { "goimports", "gofmt", "golines", "gofumpt" },
-		javascript = { { "prettierd", "prettier" } },
-		typescript = { { "prettierd", "prettier" } },
-		typescriptreact = { { "prettierd", "prettier" } },
-		javascriptreact = { { "prettierd", "prettier" } },
+		javascript = { "prettierd", "prettier" },
+		typescript = { "prettierd", "prettier" },
+		typescriptreact = { "prettierd", "prettier" },
+		javascriptreact = { "prettierd", "prettier" },
 		cpp = { "clang-format" },
-		astro = { { "prettier" } },
+		astro = { "prettier" },
 		godot = { "gdformat" },
 		python = function(bufnr)
 			if require("conform").get_formatter_info("ruff_format", bufnr).available then
