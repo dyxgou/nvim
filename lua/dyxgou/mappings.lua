@@ -53,6 +53,14 @@ map("n", "<cr>", function()
 	return require("obsidian").util.smart_action()
 end, { desc = "Toggle obsidian checkbox" })
 
+--- Keys
+
+map("n", "<C-e>", "A{}", { desc = "Put brackets to the end of the line" })
+map("n", "<C-q>", "A=", { desc = "Put equals at the end of the line" })
+
+map("i", "<C-e>", "{}", { desc = "Put brackets at the line" })
+map("i", "<C-q>", "=", { desc = "Put brackets at the line" })
+
 -- Mappings
 
 nomap("n", "gcc")
