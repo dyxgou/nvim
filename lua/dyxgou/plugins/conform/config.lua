@@ -8,9 +8,9 @@ return {
 		javascript = { "prettierd", "prettier" },
 		typescript = { "prettierd", "prettier" },
 		typescriptreact = { "prettierd", "prettier" },
+		astro = { "prettierd", "prettier" },
 		javascriptreact = { "prettierd", "prettier" },
 		cpp = { "clang-format" },
-		astro = { "prettier" },
 		godot = { "gdformat" },
 		python = function(bufnr)
 			if require("conform").get_formatter_info("ruff_format", bufnr).available then
