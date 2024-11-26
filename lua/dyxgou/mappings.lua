@@ -61,6 +61,23 @@ map("n", "<C-q>", "A=", { desc = "Put equals at the end of the line" })
 map("i", "<C-e>", "{}", { desc = "Put brackets at the line" })
 map("i", "<C-q>", "=", { desc = "Put brackets at the line" })
 
+--- Git
+
+map("n", "<leader>ga", "<cmd>Git add .<CR>", { desc = "Git add the curret file" })
+
+map(
+	"n",
+	"<leader>gp",
+	"<cmd>Gitsigns preview_hunk_inline<CR>",
+	{ desc = "Show a preview of the changes made in the file" }
+)
+
+map(
+	"n",
+	"<leader>gb",
+	"<cmd>Gitsigns toggle_current_line_blame<CR>",
+	{ desc = "Show a preview of the changes made in the file" }
+)
 -- Mappings
 
 nomap("n", "gcc")
@@ -68,4 +85,4 @@ nomap("n", "gc")
 nomap("n", "gbc")
 map("n", "<F1>", "<Esc>", { noremap = true, silent = true })
 map("i", "<F1>", "<Esc>", { noremap = true, silent = true })
-map("v", "<F1>", "<Esc>", { noremap = true, silent = true })
+map("v", "<F0>", "<Esc>", { noremap = true, silent = true })
