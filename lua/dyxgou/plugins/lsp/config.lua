@@ -31,6 +31,7 @@ local languages = {
 	"dockerls",
 	"docker_compose_language_service",
 	"clangd",
+	"rust_analyzer",
 }
 
 for _, language in ipairs(languages) do
@@ -50,4 +51,10 @@ lsp.markdown_oxide.setup({
 	cmd = { "markdown-oxide" },
 	filetypes = { "markdown" },
 	root_dir = lsp.util.root_pattern(".git", "."),
+})
+
+lsp.omnisharp.setup({
+	cmd = { "omnisharp", "--languageserver" },
+	on_attach = on_attach,
+	capabilities = lsp_capabilities,
 })

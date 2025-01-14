@@ -9,6 +9,7 @@ return {
 		typescript = { "prettierd", "prettier" },
 		typescriptreact = { "prettierd", "prettier" },
 		astro = { "prettierd", "prettier" },
+		csharp = { "cshapier" },
 		javascriptreact = { "prettierd", "prettier" },
 		cpp = { "clang-format" },
 		godot = { "gdformat" },
