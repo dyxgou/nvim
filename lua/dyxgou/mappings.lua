@@ -57,10 +57,6 @@ end, { desc = "Toggle obsidian checkbox" })
 
 map("n", "<C-e>", "A{}", { desc = "Put brackets to the end of the line" })
 map("n", "<C-q>", "A=", { desc = "Put equals at the end of the line" })
-
-map("i", "<C-e>", "{}", { desc = "Put brackets at the line" })
-map("i", "<C-q>", "=", { desc = "Put brackets at the line" })
-
 --- Git
 
 map("n", "<leader>ga", "<cmd>Git add .<CR>", { desc = "Git add the curret file" })
@@ -78,6 +74,14 @@ map(
 	"<cmd>Gitsigns toggle_current_line_blame<CR>",
 	{ desc = "Show a preview of the changes made in the file" }
 )
+
+map("n", "G", "Gzz", { desc = "Go to the bottom of the file and center it" })
+
+-- Timer
+
+map("n", "<leader>tc", "<cmd>TimerSession pomodoro<CR>", { desc = "Creates a pomodoro timer" })
+map("n", "<leader>th", "<cmd>TimerHide<CR>", { desc = "Hides the timer" })
+
 -- Mappings
 
 nomap("n", "gcc")
