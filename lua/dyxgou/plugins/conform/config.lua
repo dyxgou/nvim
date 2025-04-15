@@ -7,6 +7,7 @@ return {
     go = { "goimports", "gofmt", "golines", "gofumpt" },
     javascript = { "prettierd", "prettier" },
     typescript = { "prettierd", "prettier" },
+    css = { "prettierd", "prettier" },
     typescriptreact = { "prettierd", "prettier" },
     astro = { "prettierd", "prettier" },
     csharp = { "cshapier" },
