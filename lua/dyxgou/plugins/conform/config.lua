@@ -9,11 +9,13 @@ return {
     typescript = { "prettierd", "prettier" },
     css = { "prettierd", "prettier" },
     typescriptreact = { "prettierd", "prettier" },
-    astro = { "prettierd", "prettier" },
+    astro = { "prettier" },
     csharp = { "cshapier" },
     javascriptreact = { "prettierd", "prettier" },
+    sql = { "sql_formatter" },
     cpp = { "clang-format" },
     godot = { "gdformat" },
+    markdown = { "markdownlint" },
     python = function(bufnr)
       if require("conform").get_formatter_info("ruff_format", bufnr).available then
         return { "ruff_format" }
