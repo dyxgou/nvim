@@ -37,3 +37,6 @@ vim.opt.splitbelow = true
 vim.opt.autochdir = false
 vim.opt.mouse = ""
 vim.opt.maxmapdepth = 10
+
+vim.opt.spelllang = { "en_us", "es" }
+vim.opt.spell = true
