@@ -12,6 +12,5 @@ return {
 
 	config = function()
 		require("dyxgou.plugins.lsp.config")
-		require("dyxgou.plugins.lsp.uiconfig")
 	end,
 }
