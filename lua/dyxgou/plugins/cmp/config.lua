@@ -1,111 +1,84 @@
-local cmp = require("cmp")
-local luasnip = require("luasnip")
+---@module 'blink.cmp'
+---@type blink.cmp.Config
+local options = {
+	snippets = {
+		preset = "luasnip",
+	},
+	keymap = {
+		["<C-e>"] = { "hide", "fallback" },
+		["<CR>"] = { "accept", "fallback_to_mappings" },
+		["<C-k>"] = { "show", "show_documentation", "hide_documentation" },
 
-local kind_icons = {
-  Text = "",
-  Method = "󰆧",
-  Function = "󰊕",
-  Constructor = "",
-  Field = "󰇽",
-  Variable = "",
-  Class = "󰠱",
-  Interface = "",
-  Module = "",
-  Property = "󰜢",
-  Unit = "",
-  Value = "󰎠",
-  Enum = "",
-  Keyword = "󰌋",
-  Snippet = "",
-  Color = "󰏘",
-  File = "󰈙",
-  Reference = "",
-  Folder = "󰉋",
-  EnumMember = "",
-  Constant = "󰏿",
-  Struct = "",
-  Event = "",
-  Operator = "󰆕",
-  TypeParameter = "󰅲",
+		["<Tab>"] = {
+			"select_next",
+			"fallback",
+		},
+		["<S-Tab>"] = { "select_prev", "fallback" },
+
+		["<C-b>"] = { "scroll_documentation_up", "fallback" },
+		["<C-f>"] = { "scroll_documentation_down", "fallback" },
+	},
+
+	appearance = {
+		nerd_font_variant = "mono",
+		kind_icons = {
+			Text = "",
+			Method = "󰆧",
+			Function = "󰊕",
+			Constructor = "",
+			Field = "󰇽",
+			Variable = "",
+			Class = "󰠱",
+			Interface = "",
+			Module = "",
+			Property = "󰜢",
+			Unit = "",
+			Value = "󰎠",
+			Enum = "",
+			Keyword = "󰌋",
+			Snippet = "",
+			Color = "󰏘",
+			File = "󰈙",
+			Reference = "",
+			Folder = "󰉋",
+			EnumMember = "",
+			Constant = "󰏿",
+			Struct = "",
+			Event = "",
+			Operator = "󰆕",
+			TypeParameter = "󰅲",
+		},
+	},
+
+	completion = {
+		keyword = { range = "full" },
+		documentation = { auto_show = false },
+
+		menu = {
+			border = "rounded",
+			draw = {
+				treesitter = { "lsp" },
+				padding = { 1, 1 },
+				columns = {
+					{ "label", "label_description", gap = 1 },
+					{ "kind_icon", "kind", gap = 1 },
+				},
+			},
+		},
+	},
+
+	sources = {
+		default = { "lsp", "path", "snippets", "buffer" },
+
+		per_filetype = {
+			sql = { "snippets", "dadbod", "buffer" },
+		},
+		providers = {
+			dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+		},
+	},
+
+	fuzzy = { implementation = "prefer_rust" },
 }
 
-cmp.setup({
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
-  sources = {
-    { name = 'path' },
-    { name = 'nvim_lsp' },
-    { name = 'buffer' },
-    { name = 'luasnip' },
-  },
-  window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered({
-      Color = -3
-    }),
-  },
-  formatting = {
-    fields = { 'menu', 'abbr', 'kind' },
-    format = function(entry, item)
-      local menu_icon = {
-        nvim_lsp = 'λ',
-        luasnip = '⋗',
-        buffer = 'Ω',
-        path = '',
-      }
-
-      item.kind = string.format('%s %s', kind_icons[item.kind], item.kind)
-      item.menu = menu_icon[entry.source.name]
-      return item
-    end,
-  },
-  mapping = {
-    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-u>"] = cmp.mapping.scroll_docs(4),
-    ["<C-m>"] = cmp.mapping.complete(),
-
-    ['<CR>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        if luasnip.expandable() then
-          luasnip.expand()
-        else
-          cmp.confirm({
-            select = true,
-          })
-        end
-      else
-        fallback()
-      end
-    end),
-
-    ["<Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.locally_jumpable(1) then
-        luasnip.jump(1)
-      else
-        fallback()
-      end
-    end, { "i", "s" }),
-
-    ["<S-Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.locally_jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, { "i", "s" }),
-  },
-})
-
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-
-cmp.event:on(
-  'confirm_done',
-  cmp_autopairs.on_confirm_done()
-)
+return options

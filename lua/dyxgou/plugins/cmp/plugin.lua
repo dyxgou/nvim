@@ -1,16 +1,13 @@
 return {
-	"hrsh7th/nvim-cmp",
-	event = "InsertEnter",
+	"saghen/blink.cmp",
+	version = "*",
 	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-nvim-lua",
-		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-path",
-		"hrsh7th/cmp-cmdline",
-		"saadparwaiz1/cmp_luasnip",
+		"nvim-tree/nvim-web-devicons",
 	},
 
-	config = function()
-		require("dyxgou.plugins.cmp.config")
+	opts = function()
+		require("dyxgou.plugins.cmp.colors")
+		return require("dyxgou.plugins.cmp.config")
 	end,
+	opts_extend = { "sources.default" },
 }
